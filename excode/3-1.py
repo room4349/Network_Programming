@@ -1,13 +1,18 @@
-import operator
+def calc(*numbers, op):
+    if op == "+":
+        result = 0
+        for number in numbers:
+            result += number
+        return result
 
-def calc( *nums, op):
+    if op == "*":
+        result = 1
+        for number in numbers:
+            result *= number
+        return result
 
-    result = nums[0]
+    raise ValueError("연산자는 + 또는 *만 사용할 수 있습니다")
 
-    for num in nums[1:]:
-        result = op(result, num)
 
-    return result
-
-print(calc(1, 1, 4, op = operator.add))
-print(calc(1, 1, 4, op = operator.mul))
+print(calc(1, 1, 4, op="+"))
+print(calc(1, 2, op="*"))

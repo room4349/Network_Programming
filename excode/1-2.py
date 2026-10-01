@@ -1,20 +1,43 @@
-"""
 x = 10
+
+
+def first_test():
+    x = 20
+    print(x)
+
+
+first_test()
+print(x)
+
+
+def second_test():
+    print(x)
+
+
+second_test()
+print(x)
+
 
 def outer():
     x = 20
+
     def inner():
         x = 30
         print("A:", x)
+
     inner()
     print("B:", x)
+
+
 outer()
 print("C:", x)
-"""
-x = 10 
-def test():
+
+
+def third_test():
     global x
-    print(x) 
+    print(x)
     x = 20
-test()
+
+
+third_test()
 print(x)

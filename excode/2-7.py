@@ -1,59 +1,45 @@
 import random
 
-words = ["apple", "banana", "cherry", "date", "elderberry"]
+words = ["hangman", "python", "network", "socket"]
 
 
-def show_word(word, guessed_letters):
-    result = ""
-    for letter in word:
-        if letter in guessed_letters:
-            result += letter
-        else:
-            result += "_"
-    return result
+def show_word(word, guessed):
+    return " ".join(letter if letter in guessed else "_" for letter in word)
 
 
-def game():
-    print("Hangman Game Start")
+def play_game():
+    word = random.choice(words)
+    guessed = []
+    trials = 4
 
-    game_word = random.choice(words)
-    guessed_letters = []
-    attempts = 6
+    while trials > 0:
+        print(show_word(word, guessed))
 
-    while attempts > 0:
-        word_on_screen = show_word(game_word, guessed_letters)
-        print(f"단어: {word_on_screen}")
+        if all(letter in guessed for letter in word):
+            print("Good Job!")
+            return
 
-        if word_on_screen == game_word:
-            print("축하합니다! 모든 글자를 맞추셨습니다.")
-            break
+        letter = input("글자를 입력하세요: ").strip().lower()
 
-        print(f"남은 시도 횟수: {attempts}")
-        print(f"입력했던 글자들: {guessed_letters}")
-        guess = input("글자를 입력해주세요: ").strip().lower()
+        if len(letter) != 1 or not letter.isalpha():
+            print("한 글자만 입력하세요")
+            continue
 
-        if len(guess) != 1 or not guess.isalpha():
-            print("영문자 한 글자만 입력하세요.")
-        elif guess in guessed_letters:
-            print("이미 입력한 글자입니다. 다른 글자를 입력해주세요.")
-        else:
-            guessed_letters.append(guess)
-            if guess in game_word:
-                print(f"정답입니다! '{guess}' 글자가 포함되어 있습니다.")
-            else:
-                print(f"틀렸습니다! '{guess}' 글자가 포함되어 있지 않습니다.")
-                attempts -= 1
-    else:
-        print(f"게임 오버! 정답은 '{game_word}'입니다.")
+        if letter in guessed:
+            print("이미 입력한 글자입니다")
+            continue
 
-def main():
-    while True:
-        i = input("게임을 종료 하시려면 0을 입력해주세요")
-        if i == "0":
-            print("게임을 종료합니다.")
-            break
-        else:
-            game()
+        guessed.append(letter)
+
+        if letter not in word:
+            trials -= 1
+            print(f"Nope! {trials} trials left")
+
+    print("Fail!")
 
 
-main()
+while True:
+    play_game()
+    answer = input("게임을 계속하시겠습니까? (y/n): ").strip().lower()
+    if answer != "y":
+        break

@@ -1,6 +1,5 @@
-i = [1, 0, 1 ]
-j = [1, 1, 2 ]
+first = [1, 0, 1]
+second = [1, 1, 2]
 
-sum = (i[0] * j[0]) + (i[1] * j[1]) + (i[2] * j[2])
-
-print(j, "*", i, "=", sum)
+total = sum(first[index] * second[index] for index in range(3))
+print(f"{first} * {second} = {total}")
