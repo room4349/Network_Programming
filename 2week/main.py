@@ -1,0 +1,12 @@
+a = int(input("정수 a를 입력하세요: "))
+b = int(input("정수 b를 입력하세요: "))
+print("a:{} + b {} = {}".format(a,b, a + b))
+print("a:{} - b {} = {}".format(a,b, a - b))
+print("a:{} * b {} = {}".format(a,b, a * b))
+print("a:{} / b {} = {}".format(a,b, a / b))
+
+x, y = map(int, input("정수 a, b를 입력하세요: ").split(','))
+print("x:{} + y {} = {}".format(x,y, x + y))
+print("x:{} - y {} = {}".format(x,y, x - y))
+print("x:{} * y {} = {}".format(x,y, x * y))
+print("x:{} / y {} = {}".format(x,y, x / y))
