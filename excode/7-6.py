@@ -1,4 +1,3 @@
-# 연습 7-6: 딕셔너리 조작
 students = {
     "name": "Kim",
     "math": 80,

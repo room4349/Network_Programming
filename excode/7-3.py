@@ -1,4 +1,3 @@
-# 연습 7-3: for ... in을 이용한 중복 제거
 numbers = [1, 2, 2, 5, 3, 4, 3, 5, 1, 6]
 unique_numbers = []
 

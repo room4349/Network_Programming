@@ -1,4 +1,3 @@
-# 연습 7-1: 문자열과 튜플 슬라이싱
 text = "WindowProgramming"
 
 print("문자열 슬라이싱")
